@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BAB78F32-B91A-4617-97AE-398353C248EE}</ProjectGuid>
+    <ProjectGuid>{7A4F092A-0AD8-45BB-97D2-9DDE4C7A575E}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>azaza</RootNamespace>
-    <AssemblyName>azaza</AssemblyName>
+    <RootNamespace>Lesson_2</RootNamespace>
+    <AssemblyName>Lesson_2</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
