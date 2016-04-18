@@ -164,13 +164,14 @@ namespace Lesson_2
             //Console.WriteLine();
             //Console.WriteLine("Введите число A");
             //int A = Convert.ToInt32(Console.ReadLine());
-            //bool Yes=false;
+            //bool Yes = false;
             //Console.WriteLine("---");
             //for (int i = 0; i < n; i++)
             //{
             //    if (A == numbers[i])
             //    {
             //        Yes = true;
+            //        break;
             //    }
             //}
 
