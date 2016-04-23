@@ -279,7 +279,7 @@ namespace Lesson_2
                 }
             }
             #endregion
-            Console.ReadLine();
+            //Console.ReadLine();
         }
     }
 }
