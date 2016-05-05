@@ -9,19 +9,33 @@ namespace Lesson5
     class MetalAccount : SavingsAccount
     {
         public string MetalType { get; set; }
-        public decimal MetalWeight { get; set; }
+        public decimal MetalWeight { get; private set;}
         public decimal MetalPrice { get; set; }
 
-        public override void IncreaseBalance(decimal amount)
+        public override bool IncreaseBalance(decimal amount)
         {
-            base.IncreaseBalance(amount);
-            MetalWeight = MetalWeight + amount / MetalPrice;
+            if (base.IncreaseBalance(amount))
+            {
+                MetalWeight = MetalWeight + amount / MetalPrice;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        public override void DecreaseBalance(decimal amount)
+        public override bool DecreaseBalance(decimal amount)
         {
-            base.DecreaseBalance(amount);
-            MetalWeight = MetalWeight - amount / MetalPrice;
+            if (base.DecreaseBalance(amount))
+            {
+                MetalWeight = MetalWeight - amount / MetalPrice;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public MetalAccount(string metalType, decimal metalWeight, decimal metalPrice, decimal balance):base(balance)

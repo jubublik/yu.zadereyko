@@ -19,17 +19,27 @@ namespace Lesson5
         public string UserName { get; set; }
         protected decimal Balance { get; set; }
 
-        public bool IsActive { get; set; }
+        public bool IsActive { get; private set; }
 
-        public virtual void IncreaseBalance(decimal amount)
+        public virtual bool IncreaseBalance(decimal amount)
         {
             if (IsActive)
             {
-                Balance = Balance + amount;
+                if (amount < 0)
+                {
+                    Console.WriteLine("Пополнение может быть только положительным");
+                    return false;
+                }
+                else
+                {
+                    Balance = Balance + amount;
+                    return true;
+                }
             }
             else
             {
                 NotActiveAccountMessage();
+                return false;
             }
         }
 
@@ -38,23 +48,34 @@ namespace Lesson5
             Console.WriteLine("Счет закрыт, операции не доступны.");
         }
 
-        public virtual void DecreaseBalance(decimal amount)
+        public virtual bool DecreaseBalance(decimal amount)
         {
             if (IsActive)
             {
-                if (amount <= Balance)
+                if (amount < 0)
                 {
-                    Balance = Balance - amount;
+                    Console.WriteLine("Пополнение может быть только положительным");
+                    return false;
                 }
-
                 else
                 {
-                    Console.WriteLine("Сумма списания не может превышать баланс");
+                    if (amount > Balance)
+                    {
+                        Console.WriteLine("Сумма списания не может превышать баланс");
+                        return false;
+                    }
+
+                    else
+                    {
+                        Balance = Balance - amount;
+                        return true;
+                    }
                 }
             }
             else
             {
                 NotActiveAccountMessage();
+                return false;
             }
         }
 

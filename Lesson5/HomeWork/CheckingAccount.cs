@@ -8,7 +8,7 @@ namespace Lesson5
 {
     class CheckingAccount : SavingsAccount
     {
-        public decimal ServiceCharge { get; set; }
+        public decimal ServiceCharge { get; private set; }
 
         public void ApplyServiceCharge()
         {

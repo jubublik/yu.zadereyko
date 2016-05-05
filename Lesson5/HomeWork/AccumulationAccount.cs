@@ -11,27 +11,16 @@ namespace Lesson5
         public decimal InitialFee { get; set; }
         public decimal Rate { get; set; }
 
-        public override void IncreaseBalance(decimal amount)
+        public override bool DecreaseBalance(decimal amount)
         {
             if (amount >= InitialFee)
             {
-                base.IncreaseBalance(amount);
-            }
-            else
-            {
-                Console.WriteLine("Сумма пополнения не может быть меньше первоначального взноса");
-            }
-        }
-
-        public override void DecreaseBalance(decimal amount)
-        {
-            if (amount >= InitialFee)
-            {
-                base.DecreaseBalance(amount);
+                return base.DecreaseBalance(amount);
             }
             else
             {
                 Console.WriteLine("Сумма списания не может быть меньше первоначального взноса");
+                return false;
             }
         }
 

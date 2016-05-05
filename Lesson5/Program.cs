@@ -31,7 +31,6 @@ namespace Lesson5
             MetalAccount metal = new MetalAccount("Золото", 23, 100, 3000);
             metal.DecreaseBalance(1000);
             Console.WriteLine(metal);
-            Console.WriteLine(metal.MetalWeight);
             Console.ReadLine();
         }
     }
