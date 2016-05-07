@@ -31,6 +31,11 @@ namespace Lesson5
             MetalAccount metal = new MetalAccount("Золото", 23, 100, 3000);
             metal.DecreaseBalance(1000);
             Console.WriteLine(metal);
+            BaseClient client = new BaseClient();
+            client.Accounts = new List<SavingsAccount>();
+            client.Accounts.Add(new CheckingAccount(12,100));
+            client.Accounts.Add(new MetalAccount("Au", 12, 25, 200));
+            Console.WriteLine(client.TotalBalace);
             Console.ReadLine();
         }
     }

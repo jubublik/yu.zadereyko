@@ -12,12 +12,12 @@ using System.Threading.Tasks;
 //Реализовать метод закрытия счета.С закрытым счетом нельзя проводить никакие операции. Счет не может быть закрыт, если он имеет положительный баланс.
 
 namespace Lesson5
-{
+{ 
     class SavingsAccount
     {
         public string AccountNumber { get; set; }
         public string UserName { get; set; }
-        protected decimal Balance { get; set; }
+        public decimal Balance { get; private set; }
 
         public bool IsActive { get; private set; }
 
