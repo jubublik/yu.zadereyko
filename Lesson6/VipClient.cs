@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lesson6
+namespace Lesson5
 {
-    class Client
+    class VipClient : BankClient
     {
-        private static void Balance()
-        {
 
-        }
     }
 }

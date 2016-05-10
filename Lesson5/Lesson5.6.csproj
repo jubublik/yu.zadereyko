@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HomeWork\AccumulationAccount.cs" />
+    <Compile Include="HomeWork\Bank.cs" />
     <Compile Include="HomeWork\CheckingAccount.cs" />
     <Compile Include="HomeWork\BaseClient.cs" />
     <Compile Include="HomeWork\MetalAccount.cs" />
@@ -51,6 +52,8 @@
     <Compile Include="ClassWork\Client.cs" />
     <Compile Include="ClassWork\Individual.cs" />
     <Compile Include="ClassWork\Ltd.cs" />
+    <Compile Include="HomeWork\StandartClient.cs" />
+    <Compile Include="HomeWork\VipClient.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

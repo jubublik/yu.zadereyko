@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lesson5
 {
-    class Program
+    class Bank
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }

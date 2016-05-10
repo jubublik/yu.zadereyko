@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace Lesson5
 {
-    class Program
+    abstract class BankClient
     {
-        static void Main(string[] args)
+        public List<> Accounts { get; set; }
+
+        public BankClient()
         {
+
         }
+
     }
 }

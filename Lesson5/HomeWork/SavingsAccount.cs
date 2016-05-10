@@ -15,7 +15,7 @@ namespace Lesson5
 { 
     class SavingsAccount
     {
-        public string AccountNumber { get; set; }
+        public string AccountNumber { get; private set; }
         public string UserName { get; set; }
         public decimal Balance { get; private set; }
 
@@ -98,17 +98,11 @@ namespace Lesson5
             }
         }
 
-        public SavingsAccount()
-        {
-            Balance = 0;
-            IsActive = true;
-        }
-
-
-        public SavingsAccount(decimal balance)
+        public SavingsAccount(string accountNumber, decimal balance)
         {
             Balance = balance;
             IsActive = true;
+            AccountNumber = accountNumber;
         }
 
         public override string ToString()

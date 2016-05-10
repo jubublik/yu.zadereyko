@@ -38,7 +38,7 @@ namespace Lesson5
             }
         }
 
-        public MetalAccount(string metalType, decimal metalWeight, decimal metalPrice, decimal balance):base(balance)
+        public MetalAccount(string metalType, decimal metalWeight, decimal metalPrice, string accountNumber, decimal balance) : base(accountNumber, balance)
         {
             MetalPrice = metalPrice;
             MetalType = metalType;

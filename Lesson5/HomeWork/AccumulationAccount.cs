@@ -36,7 +36,7 @@ namespace Lesson5
             }
         }
 
-        public AccumulationAccount(decimal initialFee,decimal rate, decimal balance) : base(balance)
+        public AccumulationAccount(decimal initialFee, decimal rate, string accountNumber, decimal balance) : base(accountNumber, balance)
         {
             InitialFee = initialFee;
             Rate = rate;

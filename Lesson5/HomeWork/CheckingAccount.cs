@@ -15,7 +15,7 @@ namespace Lesson5
             DecreaseBalance(ServiceCharge);
         }
 
-        public CheckingAccount(decimal serviceCharge, decimal balance):base(balance)
+        public CheckingAccount(decimal serviceCharge, string accountNumber, decimal balance):base(accountNumber, balance)
         {
             ServiceCharge = serviceCharge;
         }
