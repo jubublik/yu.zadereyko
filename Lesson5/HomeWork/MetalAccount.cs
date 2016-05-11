@@ -12,6 +12,14 @@ namespace Lesson5
         public decimal MetalWeight { get; private set;}
         public decimal MetalPrice { get; set; }
 
+        public override decimal Balance
+        {
+            get
+            {
+                return MetalPrice * MetalWeight;
+            }
+        }
+
         public override bool IncreaseBalance(decimal amount)
         {
             if (base.IncreaseBalance(amount))
@@ -38,7 +46,7 @@ namespace Lesson5
             }
         }
 
-        public MetalAccount(string metalType, decimal metalWeight, decimal metalPrice, string accountNumber, decimal balance) : base(accountNumber, balance)
+        public MetalAccount(string metalType, decimal metalWeight, decimal metalPrice, string accountNumber) : base(accountNumber)
         {
             MetalPrice = metalPrice;
             MetalType = metalType;

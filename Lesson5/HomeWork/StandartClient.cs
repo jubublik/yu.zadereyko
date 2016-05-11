@@ -8,16 +8,9 @@ namespace Lesson5
 {
     class StandartClient : BaseClient
     {
-        public override void AddAccount(SavingsAccount account)
+        public StandartClient()
         {
-            if (Accounts.Count < 3)
-            {
-                base.AddAccount(account);
-            }
-            else
-            {
-                Console.WriteLine("Превышен лимит счетов");
-            }
+            AccountsCount = 3;
         }
     }
 }

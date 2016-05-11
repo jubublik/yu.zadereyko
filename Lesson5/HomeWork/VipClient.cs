@@ -8,16 +8,9 @@ namespace Lesson5
 {
     class VipClient : BaseClient
     {
-        public override void AddAccount(SavingsAccount account)
+        public VipClient()
         {
-            if (Accounts.Count < 10)
-            {
-                base.AddAccount(account);
-            }
-            else
-            {
-                Console.WriteLine("Превышен лимит счетов");
-            }
+            AccountsCount = 10;
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Lesson5
     {
         public string AccountNumber { get; private set; }
         public string UserName { get; set; }
-        public decimal Balance { get; private set; }
+        public virtual decimal Balance { get; private set; }
 
         public bool IsActive { get; private set; }
 
@@ -98,9 +98,13 @@ namespace Lesson5
             }
         }
 
-        public SavingsAccount(string accountNumber, decimal balance)
+        public SavingsAccount(string accountNumber, decimal balance) : this(accountNumber)
         {
             Balance = balance;
+        }
+
+        public SavingsAccount(string accountNumber)
+        {
             IsActive = true;
             AccountNumber = accountNumber;
         }

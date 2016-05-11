@@ -12,6 +12,7 @@ namespace Lesson5
     class BaseClient
     {
         protected List<SavingsAccount> Accounts { get; set; }
+        protected int AccountsCount { get; set; }
 
         public BaseClient()
         {
@@ -43,7 +44,14 @@ namespace Lesson5
 
         public virtual void AddAccount(SavingsAccount account)
         {
-            Accounts.Add(account);
+            if (Accounts.Count < AccountsCount)
+            {
+                Accounts.Add(account);
+            }
+            else
+            {
+                Console.WriteLine("Превышен лимит счетов");
+            }
         }
 
         public void CloseAccount(string accountNumber)
