@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Lesson5
 {
-    class BaseClient
+    class BaseClient : IComparable
     {
         protected List<SavingsAccount> Accounts { get; set; }
         protected int AccountsCount { get; set; }
@@ -75,6 +75,17 @@ namespace Lesson5
             {
                 Console.WriteLine($"Счет {accountNumber} не найден");
             }
+        }
+
+        public int CompareTo(object obj)
+        {
+            BaseClient client = (BaseClient)obj;
+            if (TotalBalace > client.TotalBalace)
+                return 1;
+            if (TotalBalace < client.TotalBalace)
+                return -1;
+
+            return 0;
         }
     }
 }
