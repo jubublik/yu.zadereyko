@@ -30,8 +30,7 @@ namespace Lesson5
             {
                 Console.WriteLine(compare[i].TotalBalace);
             }
-
-            Console.ReadLine();
+  
         }
     }
 }
