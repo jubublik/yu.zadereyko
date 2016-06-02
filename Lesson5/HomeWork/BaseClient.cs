@@ -50,7 +50,7 @@ namespace Lesson5
             }
             else
             {
-                Console.WriteLine("Превышен лимит счетов");
+                throw new ArgumentOutOfRangeException("Превышен лимит счетов");
             }
         }
 
@@ -73,7 +73,7 @@ namespace Lesson5
             }
             else
             {
-                Console.WriteLine($"Счет {accountNumber} не найден");
+                throw new ArithmeticException("Счёт не найден");
             }
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Lesson_2
 {
@@ -73,16 +74,29 @@ namespace Lesson_2
             #region Задание 2
 
             //Заполнить с консоли массив из N элементов. Отсортировать. Вывести результат. N - задается с консоли
-            //Console.WriteLine("Введите N - число элементов в массиве");
-            //n = Convert.ToInt32(Console.ReadLine());
-            ////Console.WriteLine(n);
-            //int[] numbers = new int[n];
-            //for (int i = 0; i < n; i++)
-            //{
-            //    Console.WriteLine("Введите число");
-            //    numbers[i] = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введите N - число элементов в массиве");
 
-            //}
+            n = Convert.ToInt32(Console.ReadLine());
+            //Console.WriteLine(n);
+            int[] numbers = new int[n];
+            StreamWriter sw = new StreamWriter(@"D:\file.txt");
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine("Введите число");
+                numbers[i] = Convert.ToInt32(Console.ReadLine());
+                sw.WriteLine(numbers[i]);
+            }
+            sw.Close();
+
+            StreamReader sr = new StreamReader(@"D:\file.txt");
+            string cons = sr.ReadLine();
+            Console.WriteLine(cons);
+            Console.ReadLine();
+            sr.Close();
+
+
+           
+
             //Array.Sort(numbers);
             //for (int j = 0; j < n; j++)
             //{
@@ -236,48 +250,48 @@ namespace Lesson_2
 
 
             //Калькулятор.С консоли вводится левый операнд, операция, правый операнд. Выводится результат операции над операндами.Реализовать как минимум 4 операции, обработку ошибок (деление на 0 и др).
-            string Oper;
-            while (true)
-            {
-                Console.WriteLine("Введите лeвый операнд:");
-                n = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Введите операцию:");
-                Oper = Console.ReadLine();
-                Console.WriteLine("Введите правый операнд:");
-                m = Convert.ToInt32(Console.ReadLine());
+            //string Oper;
+            //while (true)
+            //{
+            //    Console.WriteLine("Введите лeвый операнд:");
+            //    n = Convert.ToInt32(Console.ReadLine());
+            //    Console.WriteLine("Введите операцию:");
+            //    Oper = Console.ReadLine();
+            //    Console.WriteLine("Введите правый операнд:");
+            //    m = Convert.ToInt32(Console.ReadLine());
 
-                if (Oper == "+")
-                {
-                    Console.WriteLine("Результат:");
-                    Console.WriteLine(n + m);
-                }
-                else if (Oper == "-")
-                {
-                    Console.WriteLine("Результат:");
-                    Console.WriteLine(n - m);
-                }
-                else if (Oper == "*")
-                {
-                    Console.WriteLine("Результат:");
-                    Console.WriteLine(n * m);
-                }
-                else if (Oper == "/")
-                {
-                    Console.WriteLine("Результат:");
-                    if (m == 0)
-                    {
-                        Console.WriteLine("Делить на 0 нельзя");
-                    }
-                    else
-                    {
-                        Console.WriteLine(n / m);
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Введена недопустимая операция, используйте -, +, *, /");
-                }
-            }
+            //    if (Oper == "+")
+            //    {
+            //        Console.WriteLine("Результат:");
+            //        Console.WriteLine(n + m);
+            //    }
+            //    else if (Oper == "-")
+            //    {
+            //        Console.WriteLine("Результат:");
+            //        Console.WriteLine(n - m);
+            //    }
+            //    else if (Oper == "*")
+            //    {
+            //        Console.WriteLine("Результат:");
+            //        Console.WriteLine(n * m);
+            //    }
+            //    else if (Oper == "/")
+            //    {
+            //        Console.WriteLine("Результат:");
+            //        if (m == 0)
+            //        {
+            //            Console.WriteLine("Делить на 0 нельзя");
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine(n / m);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Введена недопустимая операция, используйте -, +, *, /");
+            //    }
+            //}
             #endregion
             //Console.ReadLine();
         }

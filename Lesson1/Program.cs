@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Lesson_1
 {
@@ -38,6 +39,7 @@ namespace Lesson_1
             c = b << 1;
             Console.WriteLine("После обнуления последнего бита:");
             Console.WriteLine(c);
+
 
 
             Console.ReadLine();

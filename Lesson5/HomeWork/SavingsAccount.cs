@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Lesson5
 { 
-    class SavingsAccount
+    public class SavingsAccount
     {
         public string AccountNumber { get; private set; }
         public string UserName { get; set; }
@@ -27,8 +27,7 @@ namespace Lesson5
             {
                 if (amount < 0)
                 {
-                    Console.WriteLine("Пополнение может быть только положительным");
-                    return false;
+                    throw new ArgumentOutOfRangeException("amount", "Пополнение может быть только положительным");
                 }
                 else
                 {
@@ -45,7 +44,7 @@ namespace Lesson5
 
         protected virtual void NotActiveAccountMessage()
         {
-            Console.WriteLine("Счет закрыт, операции не доступны.");
+            throw new ArgumentException("Счет закрыт, операции не доступны.");
         }
 
         public virtual bool DecreaseBalance(decimal amount)
@@ -54,15 +53,13 @@ namespace Lesson5
             {
                 if (amount < 0)
                 {
-                    Console.WriteLine("Пополнение может быть только положительным");
-                    return false;
+                    throw new ArgumentOutOfRangeException("amount", "Пополнение может быть только положительным");
                 }
                 else
                 {
                     if (amount > Balance)
                     {
-                        Console.WriteLine("Сумма списания не может превышать баланс");
-                        return false;
+                        throw new ArgumentOutOfRangeException("amount", "Сумма списания не может превышать баланс");
                     }
 
                     else
@@ -89,7 +86,7 @@ namespace Lesson5
                 }
                 else
                 {
-                    Console.WriteLine("Счет не может быть закрыт, так как имеет положительный баланс");
+                    throw new ArgumentOutOfRangeException("Счет не может быть закрыт, так как имеет положительный баланс.");
                 }
             }
             else

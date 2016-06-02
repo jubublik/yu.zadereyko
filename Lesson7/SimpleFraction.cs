@@ -20,102 +20,79 @@ namespace Lesson7
 
         public SimpleFraction(int numerator, int denominator)
         {
+            
+            if (numerator < 0)
+            {
+                throw new ArgumentOutOfRangeException("Числитель должен быть не отрицательным.");
+            }
+
+            if (denominator < 0)
+            {
+                throw new ArgumentOutOfRangeException("Знаменатель должен быть положительным.");
+            }
+            
             Numerator = numerator;
-            if (denominator > 0)
+            Denominator = denominator;
+        }
+
+        public static int GreatestCommonDivisor(int x, int y)
+        {
+            while (y != 0)
             {
-                Denominator = denominator;
+                int temp = y;
+                y = x % y;
+                x = temp;
             }
-            else
-            {
-                Console.WriteLine("Знаменатель должен быть положительным");
-                Denominator = 0;
-      
-            }
+            return x;
         }
 
         public static SimpleFraction Reduction(SimpleFraction simple)
         {
-            int mod;
             int num = 0;
             int den = 0;
 
-            if (simple.Numerator > simple.Denominator)
+            int gcd = GreatestCommonDivisor(simple.Numerator, simple.Denominator);
+
+            if (gcd != 0)
             {
-                mod = simple.Numerator % simple.Denominator;
+                num = simple.Numerator / gcd;
+                den = simple.Denominator / gcd;
             }
             else
             {
-                mod = simple.Denominator % simple.Numerator;
-            }
-            if (mod != 0)
-            {
-                num = simple.Numerator / mod;
-                den = simple.Denominator / mod;
+                throw new DivideByZeroException();
             }
 
             return new SimpleFraction(num, den);
         }
 
-        public static SimpleFraction Add(SimpleFraction left, SimpleFraction right)
+        public static SimpleFraction OperationBase(SimpleFraction left, SimpleFraction right, bool oper)
         {
-            int addNum = 0;
-            int addDen = 0;
+            int Num = 0;
+            int Den = 0;
 
-            if (left.Denominator == right.Denominator)
+            if (oper == true)
             {
-                addNum = left.Numerator + right.Numerator;
-                addDen = left.Denominator;
+                Num = left.Numerator * right.Denominator + right.Numerator * left.Denominator;
             }
             else
             {
-                if (left.Numerator == 0)
-                {
-                    addNum = right.Numerator;
-                    addDen = right.Denominator;
-                }
-                else if (right.Numerator == 0)
-                {
-                    addNum = left.Numerator;
-                    addDen = left.Denominator;
-                }
-                else
-                {
-                    addNum = left.Numerator * right.Denominator + right.Numerator * left.Denominator;
-                    addDen = left.Denominator * right.Denominator;
-                }
+                Num = left.Numerator * right.Denominator - right.Numerator * left.Denominator;
             }
-            return Reduction(new SimpleFraction(addNum, addDen));
+
+            Den = left.Denominator * right.Denominator;
+
+            return Reduction(new SimpleFraction(Num, Den));
+        }
+
+        public static SimpleFraction Add(SimpleFraction left, SimpleFraction right)
+        {
+            return Reduction(OperationBase(left, right, true));
         }
 
         public static SimpleFraction Subtract(SimpleFraction left, SimpleFraction right)
         {
-            int subNum = 0;
-            int subDen = 0;
-
-            if (left.Denominator == right.Denominator)
-            {
-                subNum = left.Numerator - right.Numerator;
-                subDen = left.Denominator;
-            }
-            else
-            {
-                if (left.Numerator == 0)
-                {
-                    subNum = - right.Numerator;
-                    subDen = right.Denominator;
-                }
-                else if (right.Numerator == 0)
-                {
-                    subNum = left.Numerator;
-                    subDen = left.Denominator;
-                }
-                else
-                { 
-                    subNum = left.Numerator * right.Denominator - right.Numerator * left.Denominator;
-                    subDen = left.Denominator * right.Denominator;
-                }
-            }
-            return new SimpleFraction(subNum, subDen);
+            return Reduction(OperationBase(left, right, false));
         }
 
         public static SimpleFraction Multiply(SimpleFraction left, SimpleFraction right)
@@ -134,13 +111,19 @@ namespace Lesson7
                 multyDen = left.Denominator * right.Denominator;
             }
 
-            return new SimpleFraction(multyNum, multyDen);
+            return Reduction(new SimpleFraction(multyNum, multyDen));
         }
 
         public static SimpleFraction Divisive(SimpleFraction left, SimpleFraction right)
         {
             int divNum = 0;
             int divDen = 0;
+
+            if (right.Numerator == 0)
+            {
+                throw new DivideByZeroException();
+            }
+
             if (left.Numerator == 0)
             {
                 divNum = 0;
@@ -151,7 +134,7 @@ namespace Lesson7
                 divNum = left.Numerator * right.Denominator;
                 divDen = left.Denominator * right.Numerator;
             }
-            return new SimpleFraction(divNum, divDen);
+            return Reduction(new SimpleFraction(divNum, divDen));
         }
 
 

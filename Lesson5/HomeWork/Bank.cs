@@ -12,12 +12,12 @@ namespace Lesson5
         {
             if (!from.IsActive)
             {
-                Console.WriteLine("Счет списания не активен, операция невозможна");
+                throw new ArgumentException("Счет списания не активен, операция невозможна");
             }
 
             else if (!to.IsActive)
             {
-                Console.WriteLine("Счет получения не активен, операция невозможна");
+                throw new ArgumentException("Счет получения не активен, операция невозможна");
             }
 
             else

@@ -19,8 +19,7 @@ namespace Lesson5
             }
             else
             {
-                Console.WriteLine("Сумма списания не может быть меньше первоначального взноса");
-                return false;
+                throw new ArgumentException("Сумма списания не может быть меньше первоначального взноса");
             }
         }
 

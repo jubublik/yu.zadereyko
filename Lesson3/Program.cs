@@ -13,7 +13,16 @@ namespace Lesson_3
         //Сделать методы для считывания целых чисел, дробных чисел. 
         static void Main(string[] args)
         {
-            DuplicateNumbers();
+           // DuplicateNumbers();
+            int[] newarr = new int[3];
+
+            for (int i = 0; i < newarr.Length; i++)
+            {
+                newarr[i] = Convert.ToInt32(Console.ReadLine());
+            }
+
+            newarr.Print();
+
             Console.ReadLine();
         }
 
@@ -39,32 +48,34 @@ namespace Lesson_3
             return 0;
         }
 
-        public void Print(int value)
-        {
-            Console.WriteLine("int value = " + value);
-        }
+        //public static void Print(int value)
+        //{
+        //    Console.WriteLine("int value = " + value);
+        //}
 
-        public void Print(decimal value)
-        {
-            Console.WriteLine("decimal value = " + value);
-        }
+        //public void Print(decimal value)
+        //{
+        //    Console.WriteLine("decimal value = " + value);
+        //}
 
         // Сделать методы для вывода на консоль этих типов данных, массивов целых и дробных чисел (можно доработать любое ДЗ).
-        public void Print(int[] array)
-        {
-            for (int i = 0; i < array.Length; i++)
-            {
-                Print(array[i]);
-            }
-        }
+        //public static void Print(this int[] array)
+        //{
+        //    for (int i = 0; i < array.Length; i++)
+        //    {
+        //        Print(array[i]);
+        //    }
+        //}
 
-        public void Print(decimal[] array)
-        {
-            for (int i = 0; i < array.Length; i++)
-            {
-                Print(array[i]);
-            }
-        }
+
+
+        //public void Print(decimal[] array)
+        //{
+        //    for (int i = 0; i < array.Length; i++)
+        //    {
+        //        Print(array[i]);
+        //    }
+        //}
         #endregion
 
         #region Домашнее задание
